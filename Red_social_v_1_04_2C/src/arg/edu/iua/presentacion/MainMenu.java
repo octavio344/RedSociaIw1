@@ -72,7 +72,6 @@ public class MainMenu extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(135, 211, 124));
 
@@ -130,9 +129,6 @@ public class MainMenu extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
-
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 780, 80);
 
         jPanel3.setBackground(new java.awt.Color(210, 215, 211));
 
@@ -199,7 +195,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         jContraseñaU.setFont(new java.awt.Font("Malgun Gothic", 0, 18)); // NOI18N
         jContraseñaU.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jContraseñaU.setText(u.getUsername());
+        jContraseñaU.setText("******");
         jPanel4.add(jContraseñaU);
         jContraseñaU.setBounds(410, 290, 131, 38);
 
@@ -211,7 +207,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         jButton1.setText("Editar datos");
         jPanel4.add(jButton1);
-        jButton1.setBounds(590, 370, 120, 23);
+        jButton1.setBounds(590, 370, 120, 29);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -219,19 +215,31 @@ public class MainMenu extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 756, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel3);
-        jPanel3.setBounds(0, 80, 780, 430);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

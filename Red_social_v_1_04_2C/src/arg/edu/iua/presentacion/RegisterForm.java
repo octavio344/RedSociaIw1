@@ -57,6 +57,8 @@ public class RegisterForm extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         RegisterJb = new javax.swing.JButton();
         dateChooserCombo2 = new datechooser.beans.DateChooserCombo();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -146,6 +148,17 @@ public class RegisterForm extends javax.swing.JFrame {
             }
         });
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("E-mail:");
+
+        jTextField1.setText("example@exmpl.com");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -177,9 +190,13 @@ public class RegisterForm extends javax.swing.JFrame {
                                 .addGap(20, 20, 20)
                                 .addComponent(jPasswordField_CPS, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(dateChooserCombo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField1)
+                                    .addComponent(dateChooserCombo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(102, 102, 102)
@@ -218,7 +235,11 @@ public class RegisterForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel9)
                     .addComponent(dateChooserCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(RegisterJb))
@@ -255,6 +276,7 @@ public class RegisterForm extends javax.swing.JFrame {
        String uname=jTextField_UN.getText();
        String pass=String.valueOf(jPasswordField_PS.getPassword());
        String cpass=String.valueOf(jPasswordField_CPS.getPassword());
+       String email=jTextField1.getText();
        
        boolean b=true;
        
@@ -268,9 +290,9 @@ public class RegisterForm extends javax.swing.JFrame {
        
           if(pass.equals(cpass)==true){
               
-              
+         //Esto hacerlo como persistencia //     
        PreparedStatement ps;
-       String query= "insert into usuario (Nombre,Apellido,Username,Contraseña,Fecha_nacimiento) values (?,?,?,?,?)";//"insert into 'usuario' ('Nombre','Apellido','Username','Contraseña','Fecha_nacimiento') values (?,?,?,?,?)";
+       String query= "insert into usuario (Nombre,Apellido,Username,Contraseña,Fecha_nacimiento,email) values (?,?,?,?,?,?)";//"insert into 'usuario' ('Nombre','Apellido','Username','Contraseña','Fecha_nacimiento') values (?,?,?,?,?)";
        
         try {
             ps= Myconecction.getConexion().prepareStatement(query);
@@ -279,6 +301,7 @@ public class RegisterForm extends javax.swing.JFrame {
             ps.setString(3, uname);
             ps.setString(4, pass);
             ps.setString(5, fnac);
+            ps.setString(6, email);
             
             String query2="select username from usuario";
             
@@ -287,7 +310,7 @@ public class RegisterForm extends javax.swing.JFrame {
             }
         } catch (SQLException ex) {
            // Logger.getLogger(RegisterForm.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "El nombre de usuario no esta diponible!");
+            JOptionPane.showMessageDialog(null, "El nombre de usuario o email no esta diponible!");
         }
           }
           else{
@@ -298,6 +321,10 @@ public class RegisterForm extends javax.swing.JFrame {
                           JOptionPane.showMessageDialog(null, "Porfavor complete todos los campos");
       }
     }//GEN-LAST:event_RegisterJbActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -341,6 +368,7 @@ public class RegisterForm extends javax.swing.JFrame {
     private datechooser.beans.DateChooserCombo dateChooserCombo2;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -350,6 +378,7 @@ public class RegisterForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField_CPS;
     private javax.swing.JPasswordField jPasswordField_PS;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField_AP;
     private javax.swing.JTextField jTextField_UN;
     private javax.swing.JLabel minJLB;

@@ -9,6 +9,7 @@ import arg.edu.iua.ModeloDAO.PersistenciaInterface;
 import arg.edu.iua.ModeloDAO.exceptions.NoUserException;
 import arg.edu.iua.ModeloDAO.exceptions.PersistenceException;
 import arg.edu.iua.modelo.Usuario;
+import arg.edu.iua.presentacion.Context;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -22,29 +23,15 @@ import java.util.logging.Logger;
  * @author Octavio
  */
 public class UserBDImp implements PersistenciaInterface{
-    Connection con;
+        Context  con;
 
-    public Connection getCon() {
-        return con;
-    }
-
-    public void setCon(Connection con) {
-        this.con = con;
+    public UserBDImp() {
     }
     
-    public UserBDImp(Connection con){
-        this.con=con;
-    }
-    
-    public UserBDImp(){
-        Connection con=null;
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/userdb","root","root");
-            this.con=con;
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
+        
+        
+    public UserBDImp(Context con){
+       this.con=con;
     }
     
     @Override
@@ -57,13 +44,27 @@ public class UserBDImp implements PersistenciaInterface{
       ResultSet rs;
       
         try {
-            ps=con.prepareStatement(str);
+            
+            System.out.println("1 " + con);
+            System.out.println("2 " + con.getCon());
+            System.out.println("3 " + str);
+            ps=con.getCon().prepareStatement(str);
             ps.setString(1, username);
             rs=ps.executeQuery();
             if(rs.next()){
                 return rsUsuario(rs);
             }else{
-                throw new NoUserException(String.format("El usuario %s no existe", username));
+                str="select * from usuario where email=?";
+                ps=con.getCon().prepareStatement(str);
+                ps.setString(1, username);
+                rs=ps.executeQuery();
+                if(rs.next()){
+                    return rsUsuario(rs);
+                }
+                else{
+                    throw new NoUserException(String.format("El usuario/email %s no existe", username));
+                }
+                
             }
         } catch (SQLException ex) {
             throw new PersistenceException(ex.getMessage());
@@ -79,6 +80,11 @@ public class UserBDImp implements PersistenciaInterface{
         u.setPassword(rs.getString("Contraseña"));
         u.setUsername(rs.getString("Username"));
         return u;
+    }
+
+    @Override
+    public String registrarU(Usuario u) throws SQLException, PersistenceException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

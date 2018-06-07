@@ -27,26 +27,25 @@
           <Group type="102" attributes="0">
               <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="51" pref="51" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" pref="191" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="lblUser" min="-2" pref="109" max="-2" attributes="0"/>
-                      <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                      <Component id="jTextField1" min="-2" pref="149" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace min="61" pref="61" max="-2" attributes="0"/>
+              <EmptySpace min="72" pref="72" max="-2" attributes="0"/>
+              <Component id="jLabel3" min="-2" pref="191" max="-2" attributes="0"/>
+              <EmptySpace min="111" pref="111" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="140" pref="140" max="-2" attributes="0"/>
-              <Component id="lblPassword" min="-2" pref="119" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                      <Component id="lblUser" min="-2" pref="109" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="lblPassword" min="-2" pref="119" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-              <Component id="jPassword" min="-2" pref="149" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jTextField1" min="-2" pref="149" max="-2" attributes="0"/>
+                  <Component id="jPassword" min="-2" pref="149" max="-2" attributes="0"/>
+              </Group>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="100" pref="100" max="-2" attributes="0"/>
@@ -68,37 +67,33 @@
                       <EmptySpace min="35" pref="35" max="-2" attributes="0"/>
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblUser" min="-2" pref="56" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
-                              <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
+                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
+              <EmptySpace min="19" pref="19" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblPassword" min="-2" pref="54" max="-2" attributes="0"/>
+                  <Component id="lblUser" min="-2" pref="56" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                      <EmptySpace min="45" pref="45" max="-2" attributes="0"/>
+                      <Component id="lblPassword" min="-2" pref="54" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                      <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="28" pref="28" max="-2" attributes="0"/>
                       <Component id="jPassword" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
+              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="21" max="32767" attributes="0"/>
+              <EmptySpace pref="26" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -152,11 +147,6 @@
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Octavio\Desktop\BD1 consultas\o.png"/>
-        </Property>
-      </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>

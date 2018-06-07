@@ -77,8 +77,8 @@ public class Usuario extends Perfil {
         this.password = password;
     }
 
-    public Usuario(String username, String password, String nombre, String apellido, Integer edad, Date fechaNac) {
-        super(nombre, apellido, edad, fechaNac);
+    public Usuario(String username, String password, String nombre, String apellido, Integer edad, Date fechaNac,String email) {
+        super(nombre, apellido, edad, fechaNac,email);
         this.username = username;
         this.password = password;
     }
@@ -120,6 +120,9 @@ public class Usuario extends Perfil {
         }
         if(cpass==null||getPassword().trim().length()<6){
             return new ErrorDeSintaxis("Conf password","El campo reingresar contraseña es obligatorio");
+        }
+        if(getEmail()==null||getEmail().trim().length()<2){
+            return new ErrorDeSintaxis("Email","El campo email es obligatorio");
         }
         else{
             return null;

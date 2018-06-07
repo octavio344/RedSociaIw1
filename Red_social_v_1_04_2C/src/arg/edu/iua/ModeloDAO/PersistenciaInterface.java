@@ -8,6 +8,7 @@ package arg.edu.iua.ModeloDAO;
 import arg.edu.iua.ModeloDAO.exceptions.NoUserException;
 import arg.edu.iua.ModeloDAO.exceptions.PersistenceException;
 import arg.edu.iua.modelo.Usuario;
+import java.sql.SQLException;
 
 /**
  *
@@ -16,5 +17,9 @@ import arg.edu.iua.modelo.Usuario;
 public interface PersistenciaInterface {
     
     public Usuario searchUser(String username) throws NoUserException,PersistenceException;
+    
+    
+    public String registrarU(Usuario u)throws SQLException,PersistenceException;
+    
     
 }

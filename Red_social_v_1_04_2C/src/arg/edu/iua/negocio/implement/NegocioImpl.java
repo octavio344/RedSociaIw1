@@ -15,6 +15,7 @@ import arg.edu.iua.negocio.NegocioInterface;
 import arg.edu.iua.negocio.exceptions.BadCredentialsException;
 import arg.edu.iua.negocio.exceptions.NoPasswordMatchException;
 import arg.edu.iua.negocio.exceptions.ServicesException;
+import arg.edu.iua.presentacion.Context;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -26,7 +27,12 @@ import java.util.logging.Logger;
  * @author Octavio
  */
 public class NegocioImpl implements NegocioInterface{
-    private UserBDImp db=new UserBDImp();
+    private Context ct;
+    private UserBDImp db=new UserBDImp(ct);
+    
+    public NegocioImpl(Context ct) {
+        this.ct=ct;
+    }
     
     
     
@@ -65,16 +71,17 @@ public class NegocioImpl implements NegocioInterface{
        ErrorDeSintaxis confi=u.chequeaCampos(cpass);
        if(confi.equals(null)){
            if(u.getPassword().equals(cpass)){
-               String str="insert into usuario (Nombre,Apellido,Username,Contraseña,Fecha_nacimiento) values (?,?,?,?,?)";
+               String str="insert into usuario (Nombre,Apellido,Username,Contraseña,Fecha_nacimiento,email) values (?,?,?,?,?,?)";
                try {
                    SimpleDateFormat dateformat=new SimpleDateFormat("yyyy-MM-dd");
                   String fnac= dateformat.format(u.getFechaNac());
-                   PreparedStatement ps=db.getCon().prepareStatement(str);
+                   PreparedStatement ps=ct.getCon().prepareStatement(str);
                    ps.setString(1,u.getNombre());
                    ps.setString(2,u.getApellido());
                    ps.setString(3, u.getUsername());
                    ps.setString(4, u.getPassword());
                    ps.setString(5, fnac );
+                   ps.setString(6, u.getEmail());
                    b=true;
                } catch (SQLException ex) {
                    throw new ServicesException("Error en el motor Mysql");

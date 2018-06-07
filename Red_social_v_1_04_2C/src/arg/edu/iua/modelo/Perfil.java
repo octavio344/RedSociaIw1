@@ -21,6 +21,7 @@ public class Perfil {
     String apellido;
     Integer edad;
     Date fechaNac;
+    String email;
     
 
     public String getNombre() {
@@ -70,12 +71,24 @@ public class Perfil {
     public Perfil() {
     }
 
-    public Perfil(String nombre, String apellido, Integer edad, Date fechaNac) {
+    public Perfil(String nombre, String apellido, Integer edad, Date fechaNac, String email) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
         this.fechaNac = fechaNac;
+        this.email = email;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+ 
+    
     
     public static Calendar DateToCalendar(Date fechaNac ) { 
  Calendar cal = null;
